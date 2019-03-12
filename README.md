@@ -17,7 +17,7 @@ Vue.use(vEchartsTcsl);
 
 
 ## Changelog
-Detailed changes for each release are documented in the [release notes](http://jianshu.com).
+Detailed changes for each release are documented in the [release notes](https://github.com/ashen9/vue-echarts-tcsl/releases).
 
 
 ## Special Thanks
