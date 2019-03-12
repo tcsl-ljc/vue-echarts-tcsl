@@ -20,7 +20,7 @@ Vue.use(vEchartsTcsl);
 
 ## Props
 name|type|required|instruction
---|:--:|--:
+--|:--:|--:|--:
 chartType|String|true|图表类型
 chartData|Object|true|图表数据
 title|String|true|图表标题
