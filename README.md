@@ -25,7 +25,10 @@ Detailed changes for each release are documented in the [release notes](https://
 
 ## Special Thanks
 [HankWangv5](https://github.com/HankWangv5).
+
 [ZhangDongliang123](https://github.com/ZhangDongliang123).
+
 [YueQuanXiaoChe](https://github.com/YueQuanXiaoChe).
+
 [YuMay2009](https://github.com/YuMay2009).
 
