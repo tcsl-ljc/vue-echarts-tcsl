@@ -18,6 +18,14 @@ Vue.use(vEchartsTcsl);
 <vue-echarts-tcsl></vue-echarts-tcsl>
 ```
 
+## Props
+name|type|required|instruction
+--|:--:|--:
+chartType|String|true|图表类型
+chartData|Object|true|图表数据
+title|String|true|图表标题
+specialId|String|true|图表ID（不可重复）
+theme|String|true|图表主题（blue/orange/purple）
 
 ## Changelog
 Detailed changes for each release are documented in the [release notes](https://github.com/ashen9/vue-echarts-tcsl/releases).
