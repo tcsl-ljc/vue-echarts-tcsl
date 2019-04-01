@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/HankWangv5/vue-echarts-tcsl.git"
   },
+  "keywords": [
+    "echarts", "vue", "tcsl"
+  ],
   "bugs": {
     "url": "https://github.com/HankWangv5/vue-echarts-tcsl/issues"
   },
