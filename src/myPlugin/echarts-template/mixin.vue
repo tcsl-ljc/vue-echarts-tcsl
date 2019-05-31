@@ -1,5 +1,6 @@
 <script>
 import * as echarts from 'echarts/lib/echarts';
+// import 'zrender/lib/svg/svg';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
@@ -9,37 +10,28 @@ export default {
   props: {
     id: String,
     chartType: String,
-    data: Object,
+    chartData: Object,
     theme: String
   },
   mounted () {
-    setTimeout(() => {
-      this.initChart();
-      window.addEventListener('resize', this.resize);
-    }, 900);
+    this.initChart();
+    window.addEventListener('resize', this.resize);
   },
   methods: {
     initChart () {
       // debugger;
       try {
-        const dcChart = echarts.init(document.getElementById(this.id), {render: 'svg'});
+        const dcChart = echarts.init(document.getElementById(this.id), null, {renderer: 'canvas'});
         this.setOption(dcChart, this.chartType);
         dcChart.resize();
       } catch (e) {
         console.trace(`'${this.id}' dom unRendered`);
       }
     },
-    // tcsl内部调用使用异步加载主题文件
-    /* async setOption (dcChart, chartType) {
-      const {Option} = await import(/!* webpackChunkName: "[request]" *!/ `./${chartType}/${chartType}-${this.theme}.js`);
+    async setOption (dcChart, chartType) {
+      const {Option} = await import(/* webpackChunkName: "[request]" */ `./${chartType}/${chartType}-${this.theme}.js`);
       this.resolveData(Option);
       dcChart.setOption(Option, true);
-    }, */
-    setOption (dcChart, chartType) {
-      // console.log(`${chartType}${this.theme}`, this[`${chartType}${this.theme}`]);
-      // const {Option} = await import(`./${chartType}/${chartType}-${this.theme}.js`);
-      this.resolveData(this[`${chartType}${this.theme}`]);
-      dcChart.setOption(this[`${chartType}${this.theme}`]);
     },
     resize () {
       try {
