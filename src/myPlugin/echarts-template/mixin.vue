@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     initChart () {
-      // debugger;
       try {
         const dcChart = echarts.init(document.getElementById(this.id), null, {renderer: 'canvas'});
         this.setOption(dcChart, this.chartType);
