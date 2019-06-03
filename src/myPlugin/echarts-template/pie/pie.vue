@@ -8,7 +8,7 @@ import minXinChart from '../mixin';
 import {Option as pieblue} from './pie-blue.js';
 import {Option as pieorange} from './pie-orange.js';
 import {Option as piepurple}  from './pie-purple.js';
-import {dataformatForPie} from '../dataformat';
+import {dataformatToNameValue} from '../dataformat';
 export default {
   mixins: [minXinChart],
   props: {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     resolveData (Option) {
-      let _data = dataformatForPie(this.chartData);
+      let _data = dataformatToNameValue(this.chartData);
       Option.series[0].data = _data;
     }
   }

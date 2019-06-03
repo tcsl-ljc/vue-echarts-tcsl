@@ -28,21 +28,6 @@ export function dataformatToNameValue (chartData) {
 }
 
 /**
- * 此方法适用于 pie / ring  图表的数据格式转换
- */
-export function dataformatForPie (chartData) {
-  // console.log('原始数据:', chartData);
-  let data = [];
-  if (chartData && chartData.yAxis && chartData.yAxis.length > 0) {
-    data = chartData.yAxis[0].data.map((item, index) => {
-      return {name: chartData.xAxis && chartData.xAxis.length ? chartData.xAxis[index] : chartData.yAxis[0].name, value: item};
-    });
-  }
-  // console.log('转换后的数据:', data);
-  return data;
-}
-
-/**
  * 此方法适用于 gauge 图表的数据格式转换
  */
 export function dataformatForGauge (chartData) {

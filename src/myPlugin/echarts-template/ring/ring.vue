@@ -9,7 +9,7 @@ import minXinChart from '../mixin';
 import {Option as ringblue} from './ring-blue.js';
 import {Option as ringorange} from './ring-orange.js';
 import {Option as ringpurple}  from './ring-purple.js';
-import {dataformatForPie} from '../dataformat';
+import {dataformatToNameValue} from '../dataformat';
 export default {
   mixins: [minXinChart],
   props: {
@@ -36,8 +36,7 @@ export default {
   },
   methods: {
     resolveData (Option) {
-      let _data = dataformatForPie(this.chartData);
-      console.log(_data);
+      let _data = dataformatToNameValue(this.chartData);
       let legend = _data.map(item => { return item.name; });
       Option.baseOption.series[0].data = _data;
       Option.baseOption.legend.data = legend;
