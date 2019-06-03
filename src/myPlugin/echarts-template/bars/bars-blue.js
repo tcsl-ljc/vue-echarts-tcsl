@@ -4,7 +4,7 @@ let seried = () => { // 小方格背景
     arr.push({ // 背景
       name: '物业费',
       type: 'bar',
-      data: [10, 10, 10],
+      data: [10, 10, 10, 10, 10],
       barWidth: 16,
       stack: 'st',
       z: 3,
@@ -23,7 +23,10 @@ export const Option = {
     show: false
   },
   grid: {
-    right: '20%'
+    containLabel: true,
+    top: '10%',
+    right: '16%',
+    bottom: '4%'
   },
   color: ['#864BFF', '#F22569', '#65E3FF', '#2D37FF', '#89DC2F', '#FFD53E', '#FF5539', '#55F696', '#F754D3', '#368BFF'],
   xAxis: [{
@@ -42,7 +45,7 @@ export const Option = {
     {
       name: '物业费',
       type: 'bar',
-      data: [70, 92, 41],
+      data: [],
       barWidth: 16,
       z: 2,
       barGap: '-100%',
@@ -66,12 +69,10 @@ export const Option = {
       name: '物', // 列表名称 如： 1 X店
       type: 'bar',
       xAxisIndex: 1,
-      data: [{value: 50, name: '北京店'},
-        {value: 50, name: '天津店'},
-        {value: 50, name: '河北店'} ],
+      data: [],
       barGap: '-100%',
       barWidth: 14,
-      z: 3,
+      z: 5,
       label: {
         show: true,
         position: [0, '-160%'],
@@ -94,10 +95,10 @@ export const Option = {
         color: 'transparent',
         barBorderRadius: [8, 8, 8, 8]
       }
-    }, ...seried(), { // 右侧百分比
+    }, { // 右侧百分比
       name: '物业费',
       type: 'bar',
-      data: [100, 100, 100],
+      data: [],
       barWidth: 16,
       z: 1,
       barGap: '-100%',
@@ -109,8 +110,7 @@ export const Option = {
             fontSize: 12
           },
           formatter: (data) => {
-            // todo 接入接口后根据返回格式调整
-            return ' ' + Option.series[0].data[data.dataIndex] + '%';
+            return ' ' + Option.series[0].data[data.dataIndex];
           },
           position: 'right'
         }
@@ -121,7 +121,7 @@ export const Option = {
     }, { // 最外边框
       name: '物业费',
       type: 'bar',
-      data: [100, 100, 100],
+      data: [],
       barWidth: 16,
       z: 0,
       barGap: '-100%',
@@ -131,5 +131,5 @@ export const Option = {
         barBorderRadius: [1, 1, 1, 1],
         borderColor: '#999'
       }
-    }]
+    }, ...seried()]
 };
