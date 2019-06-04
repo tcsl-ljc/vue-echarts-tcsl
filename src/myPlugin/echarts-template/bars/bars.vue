@@ -11,11 +11,6 @@ import {Option as barspurple}  from './bars-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
-    data: {
-      default: function () {
-        return [70, 62, 41];
-      }
-    },
     chartData: Object
   },
   data () {

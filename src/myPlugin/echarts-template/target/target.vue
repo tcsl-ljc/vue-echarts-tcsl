@@ -15,11 +15,7 @@ import {fmoney} from '../common.js';
 export default {
   props: {
     id: String,
-    data: {
-      default: function () {
-        return {data: '3968.3', name: '营业额目标(元)'};
-      }
-    },
+    chartData: {},
     theme: String
   },
   data () {
@@ -29,16 +25,22 @@ export default {
         title: '',
         num: ''
       },
+      data: {name: '', data: ''},
       medias: [100, 200, 300, 400, 500, 900, 1100, 1300, 1500, 1700, 1900, 2100]
     };
   },
   mounted () {
+    this.resolveData();
     const numbers = this.data.data.toString();
     let decimalCount = numbers.length - (numbers.indexOf('.') + 1); // 获取小数点后的个数
     if (numbers.indexOf('.') < 0) {
       decimalCount = 0;
     }
-    this.data.data = fmoney(this.data.data, decimalCount, true).toString();
+    let arr = this.data.data.toString().split('%');
+    this.data.data = fmoney(arr[0], decimalCount, true).toString();
+    if (arr.length === 2) {
+      this.data.data += '%';
+    }
     this.targetClass = `target-number-${this.theme}`;
     this.$nextTick(() => {
       this.resize();
@@ -49,6 +51,11 @@ export default {
     window.removeEventListener('resize', this.resize);
   },
   methods: {
+    resolveData () {
+      let {name, data} = this.chartData.yAxis[0];
+      data = data[0];
+      this.data = {name, data};
+    },
     resize () {
       const width = document.getElementById(this.id).offsetWidth;
       // const height = document.getElementById(this.id).offsetHeight;

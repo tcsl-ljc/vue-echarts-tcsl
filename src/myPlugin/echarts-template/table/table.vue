@@ -4,18 +4,6 @@
         :data="visiableData"
         :size="tableSize"
         stripe>
-        <!-- <el-table-column
-          prop="date"
-          label="门店编号">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="门店名称">
-        </el-table-column>
-        <el-table-column
-          prop="address"
-          label="金额">
-        </el-table-column> -->
         <el-table-column v-for="(item, index) in chartData.xAxis" :key="index"
           :prop="item"
           :label="item">

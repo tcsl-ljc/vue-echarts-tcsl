@@ -13,20 +13,7 @@ import {dataformatCommon} from '../dataformat';
 export default {
   mixins: [minXinChart],
   props: {
-    chartData: Object,
-    data: {
-      default: function () {
-        return [
-          {value: 35, name: '订单量'},
-          {value: 10, name: '取量'},
-          {value: 10, name: '取消量'},
-          {value: 34, name: '支付量'},
-          {value: 34, name: '支量'},
-          {value: 35, name: '投诉量'},
-          {value: 25, name: '投量'},
-          {value: 11, name: '被投诉'}];
-      }
-    }
+    chartData: Object
   },
   data () {
     return {
