@@ -1,10 +1,12 @@
+import {grid} from '../common';
 export const Option = {
   legend: {
     show: false
   },
-  xAxis: [{
+  grid: grid,
+  xAxis: {
     type: 'category',
-    data: ['新虹桥', '中山公园', '虹桥', '镇宁路', '天山古北'],
+    data: [],
     axisLabel: {
       rotate: 45,
       color: 'rgba(255,255,255,0.6)'
@@ -17,7 +19,7 @@ export const Option = {
     axisTick: {
       alignWithLabel: true
     }
-  }],
+  },
   yAxis: [{
     type: 'value',
     name: '',
@@ -35,10 +37,10 @@ export const Option = {
     }
   }],
   series: [{
-    name: '物业费',
+    name: '',
     type: 'bar',
-    data: [20, 12, 31, 34, 31],
-    barWidth: 16,
+    data: [],
+    barMaxWidth: 12,
     itemStyle: {
       color: {
         type: 'linear',

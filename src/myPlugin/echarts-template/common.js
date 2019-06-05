@@ -84,3 +84,11 @@ export function dealLegendText (chartInfo, y) { //  处理legend坐标轴系列�
     return y.name;
   }
 };
+
+export const grid = {
+  containLabel: true,
+  top: '10%',
+  left: '5%',
+  right: '5%',
+  bottom: '5%'
+};

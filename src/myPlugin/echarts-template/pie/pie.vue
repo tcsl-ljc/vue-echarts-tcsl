@@ -8,6 +8,7 @@ import minXinChart from '../mixin';
 import {Option as pieblue} from './pie-blue.js';
 import {Option as pieorange} from './pie-orange.js';
 import {Option as piepurple}  from './pie-purple.js';
+import {dataformatToNameValue} from '../dataformat';
 export default {
   mixins: [minXinChart],
   props: {
@@ -23,7 +24,8 @@ export default {
           {value: 25, name: '投量'},
           {value: 11, name: '被投诉'}];
       }
-    }
+    },
+    chartData: Object
   },
   data () {
     return {
@@ -36,8 +38,8 @@ export default {
   },
   methods: {
     resolveData (Option) {
-      //
-      Option.series[0].data = this.data;
+      let _data = dataformatToNameValue(this.chartData);
+      Option.series[0].data = _data;
     }
   }
 };

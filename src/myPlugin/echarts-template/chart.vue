@@ -90,6 +90,8 @@ export default {
     }
   },
   components: { // 图表组件注册机
+    // 'dc-chart-template-pie': resolve => require.ensure([], () => resolve(require('@/myPlugin/echarts-template/pie/pie.vue')), 'pie'), // 饼
+    // 'dc-chart-template-ring': resolve => require.ensure([], () => resolve(require('@/myPlugin/echarts-template/ring/ring.vue')), 'ring'), // 饼
     'dc-chart-template-pie': pie, // 饼
     'dc-chart-template-ring': ring, // 环
     'dc-chart-template-gauge': gauge, // 计量图

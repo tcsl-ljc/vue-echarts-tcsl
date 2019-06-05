@@ -1,21 +1,12 @@
 <template>
     <div :id="id" class="table-list" :class="tableClass">
       <el-table
-        class="table-list"
         :data="visiableData"
         :size="tableSize"
         stripe>
-        <el-table-column
-          prop="date"
-          label="门店数">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="字段名称">
-        </el-table-column>
-        <el-table-column
-          prop="address"
-          label="金额">
+        <el-table-column v-for="(item, index) in chartData.xAxis" :key="index"
+          :prop="item"
+          :label="item">
         </el-table-column>
       </el-table>
     </div>
@@ -23,6 +14,7 @@
 
 <script>
 // import {fmoney} from '@/common/echarts/common/common.js';
+import {dataformatForTable} from '../dataformat';
 export default {
   props: {
     id: String,
@@ -47,14 +39,15 @@ export default {
         }];
       }
     },
-    theme: String
+    theme: String,
+    chartData: Object
   },
   data () {
     return {
       tableClass: `table-${this.theme}`,
       numbers: [],
       tableSize: 'small',
-      visiableData: this.data.slice(0)
+      visiableData: dataformatForTable(this.chartData).slice(0)
     };
   },
   mounted () {

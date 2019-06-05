@@ -2,6 +2,10 @@ export const Option = {
   legend: {
     show: false
   },
+  grid: {
+    top: '15%',
+    bottom: '0'
+  },
   color: ['#864BFF', '#F22569', '#65E3FF', '#2D37FF', '#89DC2F', '#FFD53E', '#FF5539', '#55F696', '#F754D3', '#368BFF'],
   xAxis: [{
     show: false
@@ -27,8 +31,8 @@ export const Option = {
   series: [{
     name: '物业费',
     type: 'bar',
-    data: [20, 12, 31],
-    barWidth: 14,
+    data: [],
+    barWidth: 12,
     label: {
       normal: {
         show: true,
@@ -61,11 +65,9 @@ export const Option = {
     name: '物',
     type: 'bar',
     xAxisIndex: 1,
-    data: [{value: 50, name: '北京店'},
-      {value: 50, name: '天津店'},
-      {value: 50, name: '河北店'} ],
+    data: [],
     barGap: '-100%',
-    barWidth: 14,
+    barWidth: 12,
     label: {
       show: true,
       position: [0, '-150%'],

@@ -9,6 +9,7 @@ import minXinChart from '../mixin';
 import {Option as ringblue} from './ring-blue.js';
 import {Option as ringorange} from './ring-orange.js';
 import {Option as ringpurple}  from './ring-purple.js';
+import {dataformatToNameValue} from '../dataformat';
 export default {
   mixins: [minXinChart],
   props: {
@@ -21,7 +22,8 @@ export default {
           {value: 235, name: '投诉量'},
           {value: 110, name: '被投诉'}];
       }
-    }
+    },
+    chartData: Object
   },
   data () {
     return {
@@ -34,8 +36,12 @@ export default {
   },
   methods: {
     resolveData (Option) {
-      // Todo根据返回数据格式处理数据
-      Option.series[0].data = this.data;
+      let _data = dataformatToNameValue(this.chartData);
+      let legend = _data.map(item => { return item.name; });
+      Option.baseOption.series[0].data = _data;
+      Option.baseOption.legend.data = legend;
+      Option.baseOption.title[0].text = _data[0].value;
+      Option.baseOption.title[0].subtext = _data[0].name;
       // Todo根据返回数据格式处理lengend
     }
   }

@@ -9,21 +9,19 @@ import {fmoney} from '../common.js';
 export default {
   props: {
     id: String,
-    data: {
-      default: function () {
-        return {data: '3968.3'};
-      }
-    },
+    chartData: Object,
     theme: String
   },
   data () {
     return {
       numbers: [],
+      data: {data: ''},
       fontSize: 12,
       medias: [100, 200, 300, 400, 500, 900, 1100, 1300, 1500, 1700, 1900, 2100]
     };
   },
   mounted () {
+    this.resolveData();
     this.initChart();
     window.addEventListener('resize', this.resize);
   },
@@ -51,6 +49,11 @@ export default {
       this.$nextTick(() => {
         this.resize();
       });
+    },
+    resolveData () {
+      let {data} = this.chartData.yAxis[0];
+      data = data[0];
+      this.data = {data};
     },
     getRandomNum (numbers, decimalCount) {
       let integerCount;
